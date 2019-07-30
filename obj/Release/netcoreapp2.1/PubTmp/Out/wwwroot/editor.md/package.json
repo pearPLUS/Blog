@@ -1,0 +1,66 @@
+{
+  "name": "editor.md",
+  "version": "1.5.0",
+  "description": "Open source online markdown editor.",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pandao/editor.md.git"
+  },
+  "keywords": [
+    "editor.md",
+    "markdown",
+    "editor"
+  ],
+  "author": {
+    "name": "Pandao"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pandao/editor.md/issues"
+  },
+  "homepage": "https://github.com/pandao/editor.md",
+  "devDependencies": {
+    "dateformatter": "^0.1.0",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.4.2",
+    "gulp-header": "^1.2.2",
+    "gulp-jshint": "^1.9.0",
+    "gulp-minify-css": "^0.4.4",
+    "gulp-notify": "^2.1.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-replace": "^0.5.3",
+    "gulp-ruby-sass": "^1.0.1",
+    "gulp-uglifyjs": "^0.6.1",
+    "gulp-util": "^3.0.1"
+  },
+  "gitHead": "af08536772e34f6ef95870bb4cfd85d09bf1c932",
+  "_id": "editor.md@1.5.0",
+  "_shasum": "6fe636a88a39b85613f53eee6ecb7b7348ab23bf",
+  "_from": "editor.md@latest",
+  "_npmVersion": "2.9.1",
+  "_nodeVersion": "0.12.2",
+  "_npmUser": {
+    "name": "pandao",
+    "email": "272383090@qq.com"
+  },
+  "dist": {
+    "shasum": "6fe636a88a39b85613f53eee6ecb7b7348ab23bf",
+    "tarball": "https://registry.npmjs.org/editor.md/-/editor.md-1.5.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "pandao",
+      "email": "272383090@qq.com"
+    }
+  ],
+  "_resolved": "https://registry.npmjs.org/editor.md/-/editor.md-1.5.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

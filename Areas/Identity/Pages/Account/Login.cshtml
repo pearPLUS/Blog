@@ -1,0 +1,74 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+   
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+      
+                }
+                else
+                {
+                    <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+</div>
+
+<div class="container_Login">
+    <div class="wrap_login">
+        <div class="login_title">
+            <span class="login_title_C">Sign In</span>
+        </div>
+        <div class="Login_form">
+            <form method="post" autocomplete="off">
+                <div class="input">
+                    <label class="label_input">用户名</label>
+                    <input class="login_input" asp-for="Input.UserName" placeholder="Enter username" />
+                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                </div>
+                <div class="input" style="margin-bottom:15px !important;">
+                    <label class="label_input">密码</label>
+                    <input class="login_input" asp-for="Input.Password" placeholder="Enter password" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="input" style="margin-bottom:15px !important;">
+                    <label asp-for="Input.RememberMe" class="label_remember">
+                        <input asp-for="Input.RememberMe" />
+                        @Html.DisplayNameFor(m => m.Input.RememberMe)
+                    </label>
+                    <p class="login_forgot">
+                        <a asp-page="./ForgotPassword">Forgot password?</a>
+                    </p>
+                </div>
+                <div class="input">
+                    <button type="submit" class="login_submit">Log in</button>
+                </div>
+            </form>
+            <form asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal" class="External_login">
+                <span style="text-align:center;width:100%;display:block;font-size:16px;" class="external-title">Or Sign Up Using</span>
+                <span class="external-icon">
+                    
+                    <button type="submit" class="facebook_login" name="provider" value="Facebook"><i class="fa fa-facebook"></i></button>
+                    <button type="submit" class="twitter_login" name="provider" value="Twitter"><i class="fa fa-twitter"></i></button>
+                    <button type="submit" class="google_login" name="provider" value="Google"><i class="fa fa-google-plus"></i></buttontype="submit">
+                </span>
+            </form>
+        </div>
+        
+        
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

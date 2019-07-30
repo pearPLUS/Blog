@@ -1,0 +1,99 @@
+﻿@model MyBlog.Models.Blog
+@using Microsoft.AspNetCore.Identity
+@using MyBlog.Areas.Identity.Data;
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<h4>Blog</h4>
+<hr />
+<div class="row">
+    <partial name="_rightSideBar" />
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="Id" />
+
+        <div class="form-group">
+            <label asp-for="BlogTitle" class="control-label"></label>
+            <input asp-for="BlogTitle" class="form-control" />
+            <span asp-validation-for="BlogTitle" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BlogBrief" class="control-label"></label>
+            <textarea asp-for="BlogBrief" class="form-control" style="height:200px;resize:none;" maxlength="150"></textarea>
+            <span asp-validation-for="BlogBrief" class="text-danger"></span>
+        </div>
+        <div id="editor" class="form-group">
+            <label asp-for="BlogContent" class="control-label"></label>
+            <textarea asp-for="BlogContent" class="form-control"></textarea>
+            <span asp-validation-for="BlogContent" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <input asp-for="FkCatergory" class="form-control" type="hidden"/>
+        </div>
+        <div class="form-group">
+            <label asp-for="PostTime" class="control-label"></label>
+            <input asp-for="PostTime" class="form-control" />
+            <span asp-validation-for="PostTime" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="LikeCount" class="control-label"></label>
+            <input asp-for="LikeCount" class="form-control" />
+            <span asp-validation-for="LikeCount" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CommentCount" class="control-label"></label>
+            <input asp-for="CommentCount" class="form-control" />
+            <span asp-validation-for="CommentCount" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BrowseCount" class="control-label"></label>
+            <input asp-for="BrowseCount" class="form-control" />
+            <span asp-validation-for="BrowseCount" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input asp-for="FKApplicationUser" class="form-control" value="@UserManager.GetUserId(User)" type="hidden">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            init();
+        });
+
+        function init(md) {
+            // editor: div id
+            var editor = editormd("editor", {
+                width: "100%",
+                height: 500,
+                path: "/editor.md/lib/",
+                // theme: "dark"
+                // previewTheme : "dark",
+                //editorTheme: "pastel-on-dark",
+                markdown: md,
+                emoji: "true"
+
+
+            });
+
+        }
+    </script>
+}

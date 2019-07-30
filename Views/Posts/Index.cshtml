@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MyBlog.Models.Post>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div class="row post_row" style="">
+    
+    <ul class="timeline">
+
+        @foreach (var item in Model)
+        {
+        <li>
+            <article>
+                <span class="post_date">
+                    #
+                    &nbsp;
+                    <span class="post-meta-date">
+                        <time datetime="2019-07-01T08:00:31+00:00">约三周前</time>
+                    </span>
+                    (<span class="postdate_info">@Html.DisplayFor(modelItem => item.PostTime)</span>)
+                </span>
+                <span class="post_content">
+                    @Html.DisplayFor(modelItem => item.BlogContent)
+                </span>
+            </article>
+        </li>
+        }
+    </ul>
+</div>
+
+@section Scripts {
+   
+    <script type="text/javascript">
+        $(document).ready(function () {
+            postTimeSpan();
+        });
+
+        function postTimeSpan() {
+            postdates = $(".postdate_info");
+            today = new Date();
+            currentYear = today.getFullYear();
+            currentMonth = today.getMonth() + 1;
+            currentDay = today.getDate();
+            postdates.each(function () {
+                postdate = $(this).text();
+                postYear = postdate.split("-")[0];
+                postMonth = postdate.split("-")[1];
+                postDay = postdate.split("-")[2];
+
+                yearGap = currentYear - postYear;
+               monthGap = currentMonth - postMonth;
+                dayGap = currentDay - postDay;
+                timespan = $(this).parent().children(".post-meta-date");
+
+                if (yearGap > 0) {
+                    timespan.text("约" + yearGap + "年前");
+                    return true;
+                }
+                if (monthGap > 0) {
+                    timespan.text("约" + monthGap + "月前");
+                    return true;
+                }
+                timespan.text("约" + dayGap + "日前");
+
+            });
+        }
+    </script>
+}

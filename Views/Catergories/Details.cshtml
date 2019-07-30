@@ -1,0 +1,30 @@
+﻿@model MyBlog.Models.Catergory
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="C_container" style="margin-top:20px;">
+
+        <partial name="_SideBar" />
+        <partial name="_rightSideBar" />
+        <div class="category_title">
+            分类：<span>@Html.DisplayFor(Model => Model.Name)</span>
+        </div>
+        @foreach (var blog in Model.Blogs)
+        {
+            <div class="main">
+                <a class="Blog_title" asp-controller="Blogs" asp-action="Details" asp-route-id="@blog.Id">@Html.DisplayFor(modelItem => blog.BlogTitle)</a>
+                <div class="Blog_information">
+                    <span class="Blog_Date"><span class="glyphicon glyphicon-calendar" style="margin-right:8px;"></span>Date @Html.DisplayFor(modelItem => blog.PostTime)</span>
+                    <span class="Blog_category"><span class="glyphicon glyphicon-folder-close" style="margin-right:8px;"></span>分类： <p style="display:inline-block; color:black;">@Html.DisplayFor(modelItem => blog.Catergory.Name)</p></span>
+                    <span class="comment_count"><span class="glyphicon glyphicon-comment" style="margin-right:8px;"></span>评论： @Html.DisplayFor(modelItem => blog.CommentCount)</span>
+                </div>
+                <div class="Blog_content">
+                    @Html.DisplayFor(modelItem => blog.BlogBrief)
+                </div>
+            </div>
+        }
+    </div>
+</div>

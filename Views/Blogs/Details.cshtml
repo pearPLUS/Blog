@@ -1,0 +1,198 @@
+﻿@model MyBlog.Models.Blog
+@using Microsoft.AspNetCore.Identity
+@using MyBlog.Areas.Identity.Data;
+
+
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="C_container" style="margin-top:20px;">
+
+        <partial name="_SideBar" />
+        <partial name="_rightSideBar" />
+        <div class="main">
+            <!--Left side bar fixed -->
+            <div class="leftSideBar">
+                <ul>
+                    <li><span class="glyphicon glyphicon-heart-empty likeBlog"></span></li>
+                    <li><span class="glyphicon glyphicon-th-list"></span></li>
+                    <li><span class="glyphicon glyphicon-comment"></span></li>
+                    <li><span class="glyphicon glyphicon-new-window"></span></li>
+
+                </ul>
+            </div>
+
+
+            <span class="detail_title">@Html.DisplayFor(model => model.BlogTitle)</span>
+            <div class="Blog_information">
+                <span class="Blog_Date"><span class="glyphicon glyphicon-calendar" style="margin-right:8px;"></span>Date @Html.DisplayFor(model => model.PostTime)</span>
+                <span class="Blog_category"><span class="glyphicon glyphicon-folder-close" style="margin-right:8px;"></span>分类：<p style="display:inline-block; color:black;">@Html.DisplayFor(model => model.Catergory.Name)</p></span>
+                <span class="bLOG_comment_count" style="margin-right: 5px;border-right: 1px solid #999;padding-right: 8px;"><span class="glyphicon glyphicon-comment" style="margin-right:8px;"></span>评论：@Html.DisplayFor(model => model.CommentCount)</span>
+                <span class="detail_browse_count"><span class="glyphicon glyphicon-eye-open" style="margin-right:8px;"></span>阅读：@Html.DisplayFor(model => model.BrowseCount)</span>
+            </div>
+            <div id="test-editormd-view">
+                <textarea style="display:none;" name="test-editormd-markdown-doc">@Html.DisplayFor(model => model.BlogContent)</textarea>
+
+            </div>
+            <div class="label_information">
+                @foreach (var label in Model.LabelsBlogs)
+                {
+                    <a asp-controller="Labels" asp-action="details" asp-route-name="@label.Label.Name"><p class="C_label"><span class="glyphicon glyphicon-tag tag_icon" style="margin-right:5px;"></span><span class="tag_Content">@Html.DisplayFor(modelItem => label.Label.Name)</span></p></a>
+                }
+            </div>
+            @{
+                if (ViewData["userId"] != null)
+                {
+                    if (ViewData["userId"].ToString() == Model.FKApplicationUser)
+                    {
+                        <div style="margin-top: 20px;">
+                            <span class="glyphicon glyphicon-cog" style="margin-right:10px;"></span><a asp-action="Edit" asp-route-id="@Model.Id">修改文章</a>
+                        </div>
+                    }
+                }
+
+            }
+            <input type="hidden" class="blog_id" value=@Model.Id />
+        </div>
+
+        <div class="blog_comment">
+            <div class="comment_title">
+                <span>@Model.Comments.Count 条评论</span>
+            </div>
+            <div class="comment_func">
+                <input type="text" placeholder="写下你的评论..." class="comment_input comment_input" />
+                <input type="button" value="发布" class="comment_submit comment_submit" commentType="parent"/>
+                <input class="comment_user comment_user" value="@UserManager.GetUserId(User)" type="hidden">
+                <input type="hidden" class="commentFlag" value="false" />
+            </div>
+
+            @foreach (var comment in Model.Comments)
+            {
+        <div class="comment_container">
+            <div class="comment_container_parent">
+                <div class="comment-meta">
+                    <span class="comment_user_profile"></span>
+                    <span class="comment_user_name">@Html.DisplayFor(modelItem => comment.ApplicationUser.UserName)</span>
+                    <span class="comment_time">@Html.DisplayFor(modelItem => comment.PostTime)</span>
+                    
+                </div>
+                <span class="comment_content">
+                    @Html.DisplayFor(modelItem => comment.content)
+                </span>
+                <ul class="comment-information">
+                    <li class="comment_show_info"><i class="fa fa-thumbs-up"></i>15</li>
+                    <li class="comment_show_info show_detail" commentId ="@comment.Id"><i class="fa fa-comments" ></i>查看回复</li>
+                    <li class="comment_hidden_info comment_child_reply" flagValue="false"><i class="fa fa-reply"></i><span>回复</span></li>
+                </ul>
+                <div class="comment_func child_func">
+                <input type="text" placeholder="写下你的评论..." class="comment_input" />
+                <input type="button" value="发布" class="comment_submit" commentType="child" commentId="@comment.Id"/>
+                <input type="hidden" class="commentFlag" value="false"/>
+            </div>
+            </div>
+            @foreach (var childComment in comment.ChildComment)
+            {
+        <div class="comment_container_child">
+            <div class="comment-meta">
+                <span class="comment_user_profile"></span>
+                <span class="comment_user_name">@Html.DisplayFor(modelItem => childComment.ApplicationUser.UserName)</span>
+                <span class="comment_time">@Html.DisplayFor(modelItem => childComment.PostTime)</span>
+                
+            </div>
+            <span class="comment_content">
+                @Html.DisplayFor(modelItem => childComment.content)
+            </span>
+            <ul class="comment-information">
+                <li class="comment_show_info"><i class="fa fa-thumbs-up"></i>15</li>
+                <li class="comment_show_info  show_detail" commentId ="@childComment.Id"><i class="fa fa-comments" ></i>查看回复</li>
+                <li class="comment_hidden_info comment_child_reply" flagValue="false"><i class="fa fa-reply"></i><span>回复</span></li>
+            </ul>
+            <div class="comment_func child_func">
+                <input type="text" placeholder="写下你的评论..." class="comment_input" />
+                <input type="button" value="发布" class="comment_submit" commentType="child" commentId="@childComment.Id" />
+                <input type="hidden" class="commentFlag" value="false" />
+            </div>
+        </div>
+            }
+
+            <ul class="comment_property"></ul>
+        </div>
+            }
+
+        </div>
+    </div>
+
+
+</div>
+
+<div class="comment_detail_wrap">
+    <div class="comment_detail_cover">
+
+    </div>
+    <div class="comment_detail_layout">
+
+        <div class="comment_detail_container">
+            <div class="parent_detail">
+                <span class="comment_detail_title">查看评论</span>
+                <div class="comment_container_parent">
+                    <div class="comment-meta">
+                        <span class="comment_user_profile"></span>
+                        <span class="comment_user_name"></span>
+                        <span class="comment_time"></span>
+                    </div>
+                    <span class="comment_content">
+
+                    </span>
+                    <ul class="comment-information">
+                        <li class="comment_show_info"><i class="fa fa-thumbs-up"></i>15</li>
+                        <li class="comment_hidden_info comment_child_reply" flagValue="false"><i class="fa fa-reply"></i><span>回复</span></li>
+                    </ul>
+                    <div class="comment_func child_func">
+                        <input type="text" placeholder="写下你的评论..." class="comment_input" />
+                        <input type="button" value="发布" class="comment_submit" commentType="child" commentId="" />
+                        <input type="hidden" class="commentFlag" value="false" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="child_detail">
+                
+                
+            </div>
+        </div>
+        <div class="comment_detail_close"><i class="fa fa-times"></i></div>
+    </div>
+    
+    
+
+</div>
+
+
+
+@section Scripts{
+    <script>
+        testEditormdView2 = editormd.markdownToHTML("test-editormd-view", {
+            htmlDecode: "style,script,iframe",  // you can filter tags decode
+            emoji: true,
+            taskList: true,
+            tex: true,
+            flowChart: true,
+            sequenceDiagram: true,
+        });
+
+
+
+
+
+
+      
+   
+
+    </script>
+}

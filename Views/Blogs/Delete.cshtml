@@ -1,0 +1,71 @@
+﻿@model MyBlog.Models.Blog
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Blog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.Catergory)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Catergory.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogBrief)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogBrief)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogContent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogContent)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LikeCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LikeCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BrowseCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BrowseCount)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

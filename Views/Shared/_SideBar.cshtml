@@ -1,0 +1,45 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using MyBlog.Areas.Identity.Data;
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+
+    <div class="sideBar">
+        <div class="user_profile">
+            <div class="user_pic"></div>
+        </div>
+        <div class="user_name">@UserManager.GetUserName(User)</div>
+        <div class="user_mood"></div>
+        @{
+            if (SignInManager.IsSignedIn(User))
+            {
+                <div class="user_meta">
+                    <ul>
+                        <li>
+                            <strong>0</strong>
+                            <span>朋友</span>
+                        </li>
+                        <li>
+                            <strong>0</strong>
+                            <span>关注</span>
+                        </li>
+                        <li>
+                            <strong>@ViewData["articleCount"]</strong>
+                            <span>文章</span>
+                        </li>
+                        <li style="border:none !important;">
+                            <strong>0</strong>
+                            <span>留言</span>
+                        </li>
+                    </ul>
+                </div>
+            }
+        }
+
+    </div>
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@

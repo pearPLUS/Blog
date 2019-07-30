@@ -1,0 +1,42 @@
+﻿@model MyBlog.Models.IndexBlogViewModel
+
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <div class="row">
+        <div class="C_container" style="margin-top:20px;">
+
+            <partial name="_SideBar" />
+            <div class="label1">
+                <p style="text-align: left;font-size: 20px; margin-bottom:20px;"><span class="glyphicon glyphicon-tags" style="margin-right:8px;"></span>标签</p>
+
+                @foreach (var item in Model.Labels)
+                {
+                    <a asp-controller="Labels" asp-action="details" asp-route-name="@item.Name"><p class="label_content">@Html.DisplayFor(modelItem => item.Name)</p></a>
+                }
+            </div>
+            <partial name="_rightSideBar" />
+            @foreach (var item in Model.Blogs)
+            {
+                <div class="main">
+                    <a class="Blog_title" asp-action="Details" asp-route-id="@item.Id">@Html.DisplayFor(modelItem => item.BlogTitle)</a>
+                    <div class="Blog_information">
+                        <span class="Blog_Date"><span class="glyphicon glyphicon-calendar" style="margin-right:8px;"></span>Date @Html.DisplayFor(modelItem => item.PostTime)</span>
+                        <span class="Blog_category"><span class="glyphicon glyphicon-folder-close" style="margin-right:8px;"></span>分类： <p style="display:inline-block; color:black;">@Html.DisplayFor(modelItem => item.Catergory.Name)</p></span>
+                        <span class="comment_count"><span class="glyphicon glyphicon-comment" style="margin-right:8px;"></span>评论： @Html.DisplayFor(modelItem => item.CommentCount)</span>
+                    </div>
+                    <div class="Blog_content">
+                        @Html.DisplayFor(modelItem => item.BlogBrief)
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+
+    </div>
+

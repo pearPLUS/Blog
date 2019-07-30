@@ -1,0 +1,43 @@
+﻿@model MyBlog.Models.Post
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Post</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PostTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PostTime)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LikeCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LikeCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CommentCount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CommentCount)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BlogContent)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BlogContent)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
