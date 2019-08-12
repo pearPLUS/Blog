@@ -299,6 +299,28 @@ namespace MyBlog.Data.Migrations
                     b.ToTable("BlogLabel");
                 });
 
+            modelBuilder.Entity("MyBlog.Models.BlogLike", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("bloglike_id")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("BlogId")
+                        .HasColumnName("blog_id");
+
+                    b.Property<short>("Status")
+                        .HasColumnName("like_status");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnName("user_id");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BlogLike");
+                });
+
             modelBuilder.Entity("MyBlog.Models.Catergory", b =>
                 {
                     b.Property<int>("Id")

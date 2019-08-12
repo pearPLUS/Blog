@@ -33,6 +33,8 @@ namespace MyBlog.Data
 
         public DbSet<MyBlog.Models.TodoItem> TodoItem { get; set; }
 
+        public DbSet<MyBlog.Models.BlogLike> BlogLike { get; set; }
+
        
 
 

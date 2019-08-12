@@ -70,7 +70,7 @@ using MyBlog.Models;
             WriteLiteral("\r\n    <div class=\"row\">\r\n        <div class=\"C_container\" style=\"margin-top:20px;\">\r\n\r\n            ");
             EndContext();
             BeginContext(232, 27, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "ac23ecbab8a04fe5b447e00ea98e07d3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "cdad0591fdba49eca28f2f71a920154c", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -98,7 +98,7 @@ using MyBlog.Models;
             WriteLiteral("                    ");
             EndContext();
             BeginContext(550, 149, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b679cd223f05439d85c10e7a4bc737f9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b3f7c2a460264029b69b9d2bdafb0caa", async() => {
                 BeginContext(626, 25, true);
                 WriteLiteral("<p class=\"label_content\">");
                 EndContext();
@@ -153,7 +153,7 @@ using MyBlog.Models;
             WriteLiteral("            </div>\r\n            ");
             EndContext();
             BeginContext(752, 32, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "dcd185856bc84c1ab68982c90e7233df", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0b7e7b9802c0459d8529e44f0238ac8f", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -181,7 +181,7 @@ using MyBlog.Models;
             WriteLiteral("                <div class=\"main\">\r\n                    ");
             EndContext();
             BeginContext(905, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "05978285646a4ceb9a59879d2ebc9481", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ed98a45b31cf420f989012ed31bc4ca9", async() => {
                 BeginContext(973, 44, false);
 #line 25 "C:\Users\kxu30\source\repos\MyBlog\MyBlog\Views\Blogs\Index.cshtml"
                                                                                   Write(Html.DisplayFor(modelItem => item.BlogTitle));

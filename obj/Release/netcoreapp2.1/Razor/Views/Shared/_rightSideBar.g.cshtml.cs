@@ -55,7 +55,7 @@ using MyBlog.Models;
             WriteLiteral("\r\n\r\n<!-- right side bar fixed -->\r\n<div class=\"rightSideBar\">\r\n    <ul>\r\n        ");
             EndContext();
             BeginContext(201, 115, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "835fbf0b14354304a20038ff2ec620b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8354879e5f8147a4bb3ec2782f643690", async() => {
                 BeginContext(247, 65, true);
                 WriteLiteral("<li><span class=\"glyphicon glyphicon glyphicon-edit\"></span></li>");
                 EndContext();

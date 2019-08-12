@@ -28,7 +28,7 @@ html {
     scroll-behavior: smooth;
 }
 
-a, a:hover {
+a, a:hover, a:active, a:link, a:visited {
     text-decoration: none;
     color: inherit;
 }
@@ -81,7 +81,6 @@ a, a:hover {
     .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
         background-color: white;
         color: #808080;
-        font-weight: 600;
     }
 
 .navbar {
@@ -114,11 +113,11 @@ a, a:hover {
 }
 
 li.active:hover a {
-    color: #38B0DE !important;
+    color: #25c6fc !important;
 }
 
 .navbar-inverse .navbar-brand {
-    color: #38B0DE !important;
+    color: #25c6fc !important;
     font-weight: 700;
 }
 
@@ -128,7 +127,6 @@ li.active:hover a {
 
 .navbar-inverse .navbar-nav > li > a {
     color: #808080;
-    font-weight: 600;
 }
 
 .SB {
@@ -136,7 +134,7 @@ li.active:hover a {
 }
 
 .navbar-inverse .navbar-nav > li:hover .SB {
-    color: #38B0DE !important;
+    color: #25c6fc !important;
 }
 
 .dropdown_btn:hover .dropMenu {
@@ -155,8 +153,7 @@ li.active:hover a {
 .btn_logout {
     border: none;
     background-color: white;
-    color: #808080;
-    font-weight: 600;
+    color: #333333;
 }
 
     .btn_logout:hover {
@@ -174,7 +171,6 @@ li.active:hover a {
 .sideBar {
     width: 300px;
     float: right;
-    background: white;
 }
 
 .label1 {
@@ -216,7 +212,7 @@ li.active:hover a {
     width: 690px;
     float: left;
     background: white;
-    padding: 30px 25px;
+    padding: 30px 25px 30px;
     margin-bottom: 20px;
     position: relative;
 }
@@ -412,6 +408,43 @@ li.active:hover a {
     position: relative;
 }
 
+.user_card {
+    background: white;
+    padding-bottom: 8px;
+}
+
+.sidebar_note {
+    width: 300px;
+    background: white;
+    margin-top: 23px;
+    padding: 6px 0px 0;
+}
+
+.sidebar_note_title {
+    padding: 10px 8px 0px;
+    font-size: 16px;
+    border-bottom: 1px solid #ccc;
+}
+
+a.note_info {
+    display: block;
+    padding: 25px 35px 12px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+    a.note_info:hover {
+        color: #25c6fc;
+    }
+
+.sidebar_note_title span {
+    border-bottom: 3px solid #25c6fc;
+    display: inline-block;
+    padding-bottom: 6px;
+    margin-bottom: -2px;
+}
+
 .user_pic {
     width: 74px;
     height: 74px;
@@ -467,11 +500,59 @@ li.active:hover a {
             height: 40px;
             background: white;
             text-align: center;
-            padding-top: 12px;
             border-radius: 100%;
             margin-bottom: 23px;
             font-size: 16px;
+            cursor: pointer;
         }
+
+            .leftSideBar ul li span {
+                width: 100%;
+                height: 100%;
+                padding-top: 13px;
+            }
+
+            .leftSideBar ul li a {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+
+
+
+.blogLiked {
+    color: #f56b41;
+}
+
+
+.like_heart {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background: url('images/web_heart_animation.png');
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 2900%;
+}
+
+    .like_heart:hover {
+        background-position: right;
+    }
+
+.is_animating {
+    animation: heart-burst .8s steps(28) 1;
+}
+
+@keyframes heart-burst {
+    from {
+        background-position: left;
+    }
+
+    to {
+        background-position: right;
+    }
+}
 
 .detail_title {
     font-size: 28px;
@@ -551,9 +632,29 @@ li.active:hover a {
 
 .label_information {
     padding-top: 20px;
-    border-top: 1px solid #ccc;
+    /* border-top: 1px solid #ccc; */
     margin-top: 15px;
 }
+
+.blog_main {
+    padding-bottom: 8px !important;
+}
+
+.blog_bottom_info {
+    padding: 0;
+    display: block;
+    margin-top: 10px;
+    color: #9c9898;
+    font-size: 15px;
+    font-weight: 300;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+    .blog_bottom_info li {
+        display: inline-block;
+        margin-right: 45px;
+    }
 
 .container_Login {
     width: 100%;
@@ -1082,4 +1183,51 @@ li.active:hover a {
     position: relative;
     height: 80%;
     /* overflow: scroll; */
+}
+
+/*dropdown menu click*/
+.dropdown_btn_click {
+    cursor: pointer;
+}
+
+    .dropdown_btn_click:hover .user_info_nav {
+        color: #38B0DE !important;
+    }
+
+.dropMenu_click {
+    position: absolute;
+    background: white;
+    padding: 0;
+    width: 100px;
+    -moz-box-shadow: 0 0 5px #999;
+    -webkit-box-shadow: 0 0 5px #999;
+    box-shadow: 0 0 5px #999;
+    display: none;
+}
+
+.dropdown_click_item {
+    padding: 10px 15px;
+    display: block;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+    .dropdown_click_item:hover {
+        color: #38B0DE;
+    }
+
+ul.dropMenu_click::before {
+    content: "";
+    background: #FFFFFF;
+    width: 15px;
+    height: 15px;
+    display: block;
+    border-left: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+    position: absolute;
+    z-index: 999;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    right: 20px;
+    top: -7px;
 }

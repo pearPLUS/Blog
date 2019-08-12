@@ -8,38 +8,60 @@
 
 
     <div class="sideBar">
-        <div class="user_profile">
-            <div class="user_pic"></div>
-        </div>
-        <div class="user_name">@UserManager.GetUserName(User)</div>
-        <div class="user_mood"></div>
-        @{
-            if (SignInManager.IsSignedIn(User))
-            {
-                <div class="user_meta">
-                    <ul>
-                        <li>
-                            <strong>0</strong>
-                            <span>朋友</span>
-                        </li>
-                        <li>
-                            <strong>0</strong>
-                            <span>关注</span>
-                        </li>
-                        <li>
-                            <strong>@ViewData["articleCount"]</strong>
-                            <span>文章</span>
-                        </li>
-                        <li style="border:none !important;">
-                            <strong>0</strong>
-                            <span>留言</span>
-                        </li>
-                    </ul>
-                </div>
+        <div class="user_card">
+            <div class="user_profile">
+                <div class="user_pic"></div>
+            </div>
+            <div class="user_name">@UserManager.GetUserName(User)</div>
+            <div class="user_mood"></div>
+            @{
+                if (SignInManager.IsSignedIn(User))
+                {
+                    <div class="user_meta">
+                        <ul>
+                            <li>
+                                <strong>0</strong>
+                                <span>朋友</span>
+                            </li>
+                            <li>
+                                <strong>0</strong>
+                                <span>关注</span>
+                            </li>
+                            <li>
+                                <strong>@ViewData["articleCount"]</strong>
+                                <span>文章</span>
+                            </li>
+                            <li style="border:none !important;">
+                                <strong>0</strong>
+                                <span>留言</span>
+                            </li>
+                        </ul>
+                    </div>
+                }
             }
-        }
+        </div>
+        
+
+
+        <div class="sidebar_note">
+            <div class="sidebar_note_title">
+                <span><i class="fa fa-book" style="margin-right: 6px;color: #5cd4fd;font-size: 20px;"></i>笔记整理</span>
+            </div>
+            <a class="note_info" asp-controller="Catergories" asp-action="Details" asp-route-name="Python笔记">Python笔记</a>
+            <a class="note_info" asp-controller="Catergories" asp-action="Details" asp-route-name="算法笔记">算法笔记</a>
+            <a class="note_info" asp-controller="Catergories" asp-action="Details" asp-route-name="ASP.net笔记">ASP.net：Web笔记</a>
+            <a class="note_info" asp-controller="Catergories" asp-action="Details" asp-route-name="游戏开发笔记">unity： 游戏开发笔记</a>
+            <a class="note_info" asp-controller="Catergories" asp-action="Details" asp-route-name="GITHUB笔记">GITHUB笔记</a>
+            <a class="note_info" asp-controller="Catergories" asp-action="Details" asp-route-name="Android笔记">Android开发: 笔记</a>
+
+
+
+
+        </div>
 
     </div>
+
+    
 @*
     For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 *@

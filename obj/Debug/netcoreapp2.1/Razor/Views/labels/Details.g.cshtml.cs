@@ -69,7 +69,7 @@ using MyBlog.Models;
             WriteLiteral("<div class=\"row\">\r\n    <div class=\"C_container\" style=\"margin-top:20px;\">\r\n\r\n        ");
             EndContext();
             BeginContext(205, 27, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "6bc3276b19f240898e2755973b62feaf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7600da28b3a44499bbc0510ea837981d", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -88,7 +88,7 @@ using MyBlog.Models;
             WriteLiteral("\r\n\r\n        ");
             EndContext();
             BeginContext(244, 32, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "7f81795a7302444a937e1d56d242ac71", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "392b605275c845baae8b985a71554f12", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -126,7 +126,7 @@ using MyBlog.Models;
             WriteLiteral("            <div class=\"main\">\r\n                ");
             EndContext();
             BeginContext(507, 148, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e827b93b96304639b4b825c94f638cb8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "395965efbc5947649f3136c77dd13961", async() => {
                 BeginContext(602, 49, false);
 #line 19 "C:\Users\kxu30\source\repos\MyBlog\MyBlog\Views\labels\Details.cshtml"
                                                                                                          Write(Html.DisplayFor(modelItem => blog.Blog.BlogTitle));

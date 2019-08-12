@@ -109,3 +109,35 @@ $(".comment_detail_close").click(function () {
     
     $(".comment_detail_wrap").css({ "display": "none" });
 })
+
+
+
+
+// comment_like click 
+$(".like_heart").on('click touchstart', function () {
+    $(this).toggleClass('is_animating');
+});
+
+$(".like_heart").on('animated', function(){
+    $(this).toggleClass('is_animating');
+});
+
+// navigation user info dropdown click
+var dropdown_click = false;
+$(".dropdown_btn_click").click(function () {
+    if (!dropdown_click) {
+        console.log("adasdasd");
+        $(this).find(".user_info_nav").css({ "color": "#38B0DE !important" });
+        $(this).find(".glyphicon").css({ "transition": "0.6s", "transform": "rotate(-90deg)" });
+        $(this).find(".dropMenu_click").css({ "display": "block" })
+        dropdown_click = true;
+    }
+    else {
+        console.log("adasdasd");
+        $(this).find(".user_info_nav").css({ "color": "#38B0DE !important" });
+        $(this).find(".glyphicon").css({ "transition": "0.6s", "transform": "rotate(0deg)" });
+        $(this).find(".dropMenu_click").css({ "display": "none" })
+        dropdown_click = false;
+    }
+    
+});

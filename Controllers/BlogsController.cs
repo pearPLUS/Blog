@@ -39,6 +39,9 @@ namespace MyBlog.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Details(int? id)
         {
+
+
+
             if (id == null)
             {
                 return NotFound();
@@ -62,6 +65,28 @@ namespace MyBlog.Controllers
                 return NotFound();
             }
 
+            // judge wether current user have like the blog
+            short? likeStatus = null;
+            if(!string.IsNullOrEmpty(User.Identity.Name))
+            {
+                var user = _context.Users.SingleOrDefault(u => u.UserName == User.Identity.Name);
+                var userId = user.Id;
+                var blogLike = await _context.BlogLike.FirstOrDefaultAsync(b => b.BlogId == Blog.Id && b.UserId == userId);
+
+                // avoid null reference 
+                if (blogLike != null)
+                {
+                    likeStatus = blogLike.Status;
+                }
+            }
+
+
+            var blogDetail = new BlogDetailViewModel()
+            {
+                blog = Blog,
+                likeStatus = likeStatus
+            };
+
             // add Browse count
             Blog.BrowseCount++;
 
@@ -72,7 +97,7 @@ namespace MyBlog.Controllers
 
             }
            
-            return View(Blog);
+            return View(blogDetail);
         }
        
         [Authorize(Roles = "Admin, Memeber")]

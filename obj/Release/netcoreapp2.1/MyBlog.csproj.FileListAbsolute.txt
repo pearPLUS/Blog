@@ -99,3 +99,8 @@ C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\
 C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\TodoItems\Details.g.cshtml.cs
 C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\TodoItems\Edit.g.cshtml.cs
 C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\TodoItems\Index.g.cshtml.cs
+C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\BlogLikes\Create.g.cshtml.cs
+C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\BlogLikes\Delete.g.cshtml.cs
+C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\BlogLikes\Details.g.cshtml.cs
+C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\BlogLikes\Edit.g.cshtml.cs
+C:\Users\kxu30\source\repos\MyBlog\MyBlog\obj\Release\netcoreapp2.1\Razor\Views\BlogLikes\Index.g.cshtml.cs
